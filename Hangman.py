@@ -65,14 +65,14 @@ def winner(stdscr,yy,xx,maxy):
 
 def loser(stdscr,yy,xx):
     losestr = 'YOU LOSE!!!'
-    [stdscr.addstr(yy+i,xx,mylines[6][i]) for i in range(7)]
+    [stdscr.addstr(yy-2+i,xx-int(len(losestr)/2),mylines[6][i]) for i in range(7)]
     stdscr.refresh()
-    time.sleep(1)
+    time.sleep(.75)
     
     for i in range(len(losestr)):
-        stdscr.addstr(yy-1,xx+i,losestr[i])
+        stdscr.addstr(yy-4,xx-int(len(losestr)/2)+i,losestr[i])
         stdscr.refresh()
-        time.sleep(0.75)
+        time.sleep(0.5)
     
     time.sleep(3)
 
@@ -95,6 +95,10 @@ def runner(stdscr):
         
         letters.sort()
         firststr = f'You have {6 - n} incorrect guesses remaining.'
+        if len(firststr) > maxx:
+            stdscr.resize(maxy, len(firststr))
+            middlex = int(len(firststr)/2)
+        
         allx = middlex-int(len(firststr)/2)
         ally = middley-6
         stdscr.addstr(ally,allx,firststr)
@@ -104,6 +108,7 @@ def runner(stdscr):
             
         stdscr.addstr(ally+9,allx,guessword)
         stdscr.addstr(ally+11,allx,'Guess a Letter: ')
+        stdscr.resize(maxy,maxx)
         stdscr.refresh()
         
         guess = stdscr.getstr().decode('ascii').upper()
@@ -156,8 +161,6 @@ def runner(stdscr):
 
 if __name__ == '__main__':
     stdscr = curses.initscr()
-    
-    #curses.resize_term(50,50)
     curses.curs_set(0)
     word = runner(stdscr)
     print('The word was obviously ' + word)
