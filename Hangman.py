@@ -20,7 +20,7 @@ def randword(file):
     return words[n]
 
 
-def winner(stdscr,yy,xx):
+def winner(stdscr,yy,xx,maxy):
     winstr = 'YOU WON!!!'
     for i in range(len(winstr)):
         stdscr.addstr(yy,xx+i,winstr[i])
@@ -28,32 +28,37 @@ def winner(stdscr,yy,xx):
         time.sleep(0.5)
     time.sleep(2)
     stdscr.clear()
-    stdscr.addstr(0,xx,'          ¶¶ ¶¶  ¶¶ ¶¶ ')
-    stdscr.addstr(1,xx,'         ¶¶ ¶¶ ¶¶ ¶¶ ¶¶¶')
-    stdscr.addstr(2,xx,'     ¶¶¶¶¶            ¶¶¶¶¶¶¶')
-    stdscr.addstr(3,xx,'   ¶¶¶¶¶               ¶¶¶¶¶¶¶')
-    stdscr.addstr(4,xx,'  ¶¶¶¶¶                  ¶¶¶¶¶')
-    stdscr.addstr(5,xx,'  ¶¶¶¶                    ¶¶¶')
-    stdscr.addstr(6,xx,'   ¶¶                      ¶¶¶')
-    stdscr.addstr(7,xx,'   ¶                        ¶¶¶¶') 
-    stdscr.addstr(8,xx,'  ¶¶     ¶¶¶      ¶¶        ¶¶¶¶¶¶¶') 
-    stdscr.addstr(9,xx,'  ¶     ¶¶¶¶     ¶¶¶¶¶      ¶¶¶¶¶¶ ¶')
-    stdscr.addstr(10,xx,'  ¶    ¶¶¶¶¶    ¶¶¶¶¶¶¶¶    ¶¶¶¶¶¶  ¶')
-    stdscr.addstr(11,xx,'  ¶¶  ¶¶¶¶¶      ¶¶¶¶¶¶¶   ¶¶¶¶¶¶¶   ¶')
-    stdscr.addstr(12,xx,'   ¶  ¶¶¶          ¶¶¶¶   ¶¶¶¶¶¶¶¶¶   ¶')
-    stdscr.addstr(13,xx,'   ¶¶                    ¶¶¶¶¶¶¶¶¶¶   ¶¶¶') 
-    stdscr.addstr(14,xx,'   ¶¶¶     ¶¶¶¶¶¶       ¶¶¶¶¶¶¶¶¶¶¶   ¶¶¶¶')
-    stdscr.addstr(15,xx,'   ¶¶¶¶¶   ¶¶¶¶¶¶     ¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶')
-    stdscr.addstr(16,xx,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶')
-    stdscr.addstr(17,xx,'   ¶¶¶¶¶¶¶¶  ¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(18,xx,'    ¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(19,xx,'    ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(20,xx,'    ¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶')
-    stdscr.addstr(21,xx,'  ¶¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶')
-    stdscr.addstr(22,xx,'  ¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(23,xx,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(24,xx,'                   ¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(25,xx,'                   ¶¶¶¶¶¶¶¶¶¶')
+    stdscr.refresh()
+    
+    height, width = stdscr.getmaxyx()
+    stdscr.resize(30, 50)
+    stdscr.addstr(0,0,'          ¶¶ ¶¶  ¶¶ ¶¶ ')
+    stdscr.addstr(1,0,'         ¶¶ ¶¶ ¶¶ ¶¶ ¶¶¶')
+    stdscr.addstr(2,0,'     ¶¶¶¶¶            ¶¶¶¶¶¶¶')
+    stdscr.addstr(3,0,'   ¶¶¶¶¶               ¶¶¶¶¶¶¶')
+    stdscr.addstr(4,0,'  ¶¶¶¶¶                  ¶¶¶¶¶')
+    stdscr.addstr(5,0,'  ¶¶¶¶                    ¶¶¶')
+    stdscr.addstr(6,0,'   ¶¶                      ¶¶¶')
+    stdscr.addstr(7,0,'   ¶                        ¶¶¶¶') 
+    stdscr.addstr(8,0,'  ¶¶     ¶¶¶      ¶¶        ¶¶¶¶¶¶¶') 
+    stdscr.addstr(9,0,'  ¶     ¶¶¶¶     ¶¶¶¶¶      ¶¶¶¶¶¶ ¶')
+    stdscr.addstr(10,0,'  ¶    ¶¶¶¶¶    ¶¶¶¶¶¶¶¶    ¶¶¶¶¶¶  ¶')
+    stdscr.addstr(11,0,'  ¶¶  ¶¶¶¶¶      ¶¶¶¶¶¶¶   ¶¶¶¶¶¶¶   ¶')
+    stdscr.addstr(12,0,'   ¶  ¶¶¶          ¶¶¶¶   ¶¶¶¶¶¶¶¶¶   ¶')
+    stdscr.addstr(13,0,'   ¶¶                    ¶¶¶¶¶¶¶¶¶¶   ¶¶¶') 
+    stdscr.addstr(14,0,'   ¶¶¶     ¶¶¶¶¶¶       ¶¶¶¶¶¶¶¶¶¶¶   ¶¶¶¶')
+    stdscr.addstr(15,0,'   ¶¶¶¶¶   ¶¶¶¶¶¶     ¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶')
+    stdscr.addstr(16,0,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶')
+    stdscr.addstr(17,0,'   ¶¶¶¶¶¶¶¶  ¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(18,0,'    ¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(19,0,'    ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(20,0,'    ¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶')
+    stdscr.addstr(21,0,'  ¶¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶')
+    stdscr.addstr(22,0,'  ¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(23,0,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(24,0,'                   ¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(25,0,'                   ¶¶¶¶¶¶¶¶¶¶')
+    stdscr.resize(height,width)
     stdscr.refresh()
     time.sleep(3)
 
@@ -145,13 +150,14 @@ def runner(stdscr):
         stdscr.refresh()
         
         if guessword == word:
-            winner(stdscr,middley,middlex)
+            winner(stdscr,middley,middlex,maxy)
             break
     return word
 
 if __name__ == '__main__':
     stdscr = curses.initscr()
+    
+    #curses.resize_term(50,50)
     curses.curs_set(0)
-    #curses.nocbreak()
     word = runner(stdscr)
     print('The word was obviously ' + word)
