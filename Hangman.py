@@ -20,35 +20,42 @@ def randword(file):
     return words[n]
 
 
-def winner(stdscr):
-    pass
-    # print('          ¶¶ ¶¶  ¶¶ ¶¶ ')
-    # print('         ¶¶ ¶¶ ¶¶ ¶¶ ¶¶¶')
-    # print('     ¶¶¶¶¶            ¶¶¶¶¶¶¶')
-    # print('   ¶¶¶¶¶               ¶¶¶¶¶¶¶')
-    # print('  ¶¶¶¶¶                  ¶¶¶¶¶')
-    # print('  ¶¶¶¶                    ¶¶¶')
-    # print('   ¶¶                      ¶¶¶')
-    # print('   ¶                        ¶¶¶¶') 
-    # print('  ¶¶     ¶¶¶      ¶¶        ¶¶¶¶¶¶¶') 
-    # print('  ¶     ¶¶¶¶     ¶¶¶¶¶      ¶¶¶¶¶¶ ¶')
-    # print('  ¶    ¶¶¶¶¶    ¶¶¶¶¶¶¶¶    ¶¶¶¶¶¶  ¶')
-    # print('  ¶¶  ¶¶¶¶¶      ¶¶¶¶¶¶¶   ¶¶¶¶¶¶¶   ¶')
-    # print('   ¶  ¶¶¶          ¶¶¶¶   ¶¶¶¶¶¶¶¶¶   ¶')
-    # print('   ¶¶                    ¶¶¶¶¶¶¶¶¶¶   ¶¶¶') 
-    # print('   ¶¶¶     ¶¶¶¶¶¶       ¶¶¶¶¶¶¶¶¶¶¶   ¶¶¶¶')
-    # print('   ¶¶¶¶¶   ¶¶¶¶¶¶     ¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶')
-    # print('   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶')
-    # print('   ¶¶¶¶¶¶¶¶  ¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶')
-    # print('    ¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶')
-    # print('    ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶')
-    # print('    ¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶')
-    # print('  ¶¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶')
-    # print('  ¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶')
-    # print('   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶')
-    # print('                   ¶¶¶¶¶¶¶¶¶¶¶')
-    # print('                   ¶¶¶¶¶¶¶¶¶¶')
-    # print('YOU WIN!!!')
+def winner(stdscr,yy,xx):
+    winstr = 'YOU WON!!!'
+    for i in range(len(winstr)):
+        stdscr.addstr(yy,xx+i,winstr[i])
+        stdscr.refresh()
+        time.sleep(0.5)
+    time.sleep(2)
+    stdscr.clear()
+    stdscr.addstr(0,xx,'          ¶¶ ¶¶  ¶¶ ¶¶ ')
+    stdscr.addstr(1,xx,'         ¶¶ ¶¶ ¶¶ ¶¶ ¶¶¶')
+    stdscr.addstr(2,xx,'     ¶¶¶¶¶            ¶¶¶¶¶¶¶')
+    stdscr.addstr(3,xx,'   ¶¶¶¶¶               ¶¶¶¶¶¶¶')
+    stdscr.addstr(4,xx,'  ¶¶¶¶¶                  ¶¶¶¶¶')
+    stdscr.addstr(5,xx,'  ¶¶¶¶                    ¶¶¶')
+    stdscr.addstr(6,xx,'   ¶¶                      ¶¶¶')
+    stdscr.addstr(7,xx,'   ¶                        ¶¶¶¶') 
+    stdscr.addstr(8,xx,'  ¶¶     ¶¶¶      ¶¶        ¶¶¶¶¶¶¶') 
+    stdscr.addstr(9,xx,'  ¶     ¶¶¶¶     ¶¶¶¶¶      ¶¶¶¶¶¶ ¶')
+    stdscr.addstr(10,xx,'  ¶    ¶¶¶¶¶    ¶¶¶¶¶¶¶¶    ¶¶¶¶¶¶  ¶')
+    stdscr.addstr(11,xx,'  ¶¶  ¶¶¶¶¶      ¶¶¶¶¶¶¶   ¶¶¶¶¶¶¶   ¶')
+    stdscr.addstr(12,xx,'   ¶  ¶¶¶          ¶¶¶¶   ¶¶¶¶¶¶¶¶¶   ¶')
+    stdscr.addstr(13,xx,'   ¶¶                    ¶¶¶¶¶¶¶¶¶¶   ¶¶¶') 
+    stdscr.addstr(14,xx,'   ¶¶¶     ¶¶¶¶¶¶       ¶¶¶¶¶¶¶¶¶¶¶   ¶¶¶¶')
+    stdscr.addstr(15,xx,'   ¶¶¶¶¶   ¶¶¶¶¶¶     ¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶')
+    stdscr.addstr(16,xx,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶')
+    stdscr.addstr(17,xx,'   ¶¶¶¶¶¶¶¶  ¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(18,xx,'    ¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(19,xx,'    ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(20,xx,'    ¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶')
+    stdscr.addstr(21,xx,'  ¶¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶')
+    stdscr.addstr(22,xx,'  ¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(23,xx,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(24,xx,'                   ¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(25,xx,'                   ¶¶¶¶¶¶¶¶¶¶')
+    stdscr.refresh()
+    time.sleep(3)
 
 
 def loser(stdscr,yy,xx):
@@ -60,7 +67,7 @@ def loser(stdscr,yy,xx):
     for i in range(len(losestr)):
         stdscr.addstr(yy-1,xx+i,losestr[i])
         stdscr.refresh()
-        time.sleep(1)
+        time.sleep(0.75)
     
     time.sleep(3)
 
@@ -138,7 +145,7 @@ def runner(stdscr):
         stdscr.refresh()
         
         if guessword == word:
-            winner(stdscr)
+            winner(stdscr,middley,middlex)
             break
     return word
 
