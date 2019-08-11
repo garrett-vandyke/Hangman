@@ -82,9 +82,9 @@ def runner(stdscr, maxx, maxy):
     guess = 0
     n = 0
     word = randword('sowpods.txt').strip().upper()
-    loc = [' _'] * (len(word))
+    loc = ['_'] * (len(word))
     letters = []
-    guessword = ''.join(loc)
+    guessword = ' '.join(loc)
     
     middley = int(maxy/2)
     middlex = int(maxx/2)
@@ -136,10 +136,13 @@ def runner(stdscr, maxx, maxy):
             n += 1
         elif guess in word:
             letters.append(guess)
-            for i in range (0, len(word)):
+            for i in range (len(word)):
                 if word[i] == guess:
-                    loc[i] = ' ' + word[i]
-            guessword = ''.join(loc)
+                    loc[i] = guess
+            newloc = loc.copy()
+            ind = [i for i, x in enumerate(newloc) if x == '_' and newloc[i-1] == '_' and i != 0]
+            [newloc.insert(i+ind.index(i),' ') for i in ind]
+            guessword = ''.join(newloc)
         else:
             letters.append(guess)
             errstr = f'There is no {guess} in the word!'
@@ -151,7 +154,7 @@ def runner(stdscr, maxx, maxy):
         stdscr.clear()
         stdscr.refresh()
         
-        if guessword == word:
+        if guessword.replace(' ','') == word:
             winner(stdscr,middley,middlex)
             break
     return word
