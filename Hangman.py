@@ -20,45 +20,46 @@ def randword(file):
     return words[n]
 
 
-def winner(stdscr,yy,xx,maxy):
+def winner(stdscr,my,mx):
     winstr = 'YOU WON!!!'
+    
     for i in range(len(winstr)):
-        stdscr.addstr(yy,xx+i,winstr[i])
+        stdscr.addstr(my,mx-int(len(winstr)/2)+i,winstr[i])
         stdscr.refresh()
         time.sleep(0.5)
     time.sleep(2)
     stdscr.clear()
     stdscr.refresh()
     
-    height, width = stdscr.getmaxyx()
-    stdscr.resize(30, 50)
-    stdscr.addstr(0,0,'          ¶¶ ¶¶  ¶¶ ¶¶ ')
-    stdscr.addstr(1,0,'         ¶¶ ¶¶ ¶¶ ¶¶ ¶¶¶')
-    stdscr.addstr(2,0,'     ¶¶¶¶¶            ¶¶¶¶¶¶¶')
-    stdscr.addstr(3,0,'   ¶¶¶¶¶               ¶¶¶¶¶¶¶')
-    stdscr.addstr(4,0,'  ¶¶¶¶¶                  ¶¶¶¶¶')
-    stdscr.addstr(5,0,'  ¶¶¶¶                    ¶¶¶')
-    stdscr.addstr(6,0,'   ¶¶                      ¶¶¶')
-    stdscr.addstr(7,0,'   ¶                        ¶¶¶¶') 
-    stdscr.addstr(8,0,'  ¶¶     ¶¶¶      ¶¶        ¶¶¶¶¶¶¶') 
-    stdscr.addstr(9,0,'  ¶     ¶¶¶¶     ¶¶¶¶¶      ¶¶¶¶¶¶ ¶')
-    stdscr.addstr(10,0,'  ¶    ¶¶¶¶¶    ¶¶¶¶¶¶¶¶    ¶¶¶¶¶¶  ¶')
-    stdscr.addstr(11,0,'  ¶¶  ¶¶¶¶¶      ¶¶¶¶¶¶¶   ¶¶¶¶¶¶¶   ¶')
-    stdscr.addstr(12,0,'   ¶  ¶¶¶          ¶¶¶¶   ¶¶¶¶¶¶¶¶¶   ¶')
-    stdscr.addstr(13,0,'   ¶¶                    ¶¶¶¶¶¶¶¶¶¶   ¶¶¶') 
-    stdscr.addstr(14,0,'   ¶¶¶     ¶¶¶¶¶¶       ¶¶¶¶¶¶¶¶¶¶¶   ¶¶¶¶')
-    stdscr.addstr(15,0,'   ¶¶¶¶¶   ¶¶¶¶¶¶     ¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶')
-    stdscr.addstr(16,0,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶')
-    stdscr.addstr(17,0,'   ¶¶¶¶¶¶¶¶  ¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(18,0,'    ¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(19,0,'    ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(20,0,'    ¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶')
-    stdscr.addstr(21,0,'  ¶¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶')
-    stdscr.addstr(22,0,'  ¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(23,0,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(24,0,'                   ¶¶¶¶¶¶¶¶¶¶¶')
-    stdscr.addstr(25,0,'                   ¶¶¶¶¶¶¶¶¶¶')
-    stdscr.resize(height,width)
+    topy = my - 13
+    topx = mx - 22
+
+    stdscr.addstr(topy  , topx,'          ¶¶ ¶¶  ¶¶ ¶¶ ')
+    stdscr.addstr(topy+1, topx,'         ¶¶ ¶¶ ¶¶ ¶¶ ¶¶¶')
+    stdscr.addstr(topy+2, topx,'     ¶¶¶¶¶            ¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+3, topx,'   ¶¶¶¶¶               ¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+4, topx,'  ¶¶¶¶¶                  ¶¶¶¶¶')
+    stdscr.addstr(topy+5, topx,'  ¶¶¶¶                    ¶¶¶')
+    stdscr.addstr(topy+6, topx,'   ¶¶                      ¶¶¶')
+    stdscr.addstr(topy+7, topx,'   ¶                        ¶¶¶¶') 
+    stdscr.addstr(topy+8, topx,'  ¶¶     ¶¶¶      ¶¶        ¶¶¶¶¶¶¶') 
+    stdscr.addstr(topy+9, topx,'  ¶     ¶¶¶¶     ¶¶¶¶¶      ¶¶¶¶¶¶ ¶')
+    stdscr.addstr(topy+10,topx,'  ¶    ¶¶¶¶¶    ¶¶¶¶¶¶¶¶    ¶¶¶¶¶¶  ¶')
+    stdscr.addstr(topy+11,topx,'  ¶¶  ¶¶¶¶¶      ¶¶¶¶¶¶¶   ¶¶¶¶¶¶¶   ¶')
+    stdscr.addstr(topy+12,topx,'   ¶  ¶¶¶          ¶¶¶¶   ¶¶¶¶¶¶¶¶¶   ¶')
+    stdscr.addstr(topy+13,topx,'   ¶¶                    ¶¶¶¶¶¶¶¶¶¶   ¶¶¶') 
+    stdscr.addstr(topy+14,topx,'   ¶¶¶     ¶¶¶¶¶¶       ¶¶¶¶¶¶¶¶¶¶¶   ¶¶¶¶')
+    stdscr.addstr(topy+15,topx,'   ¶¶¶¶¶   ¶¶¶¶¶¶     ¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶')
+    stdscr.addstr(topy+16,topx,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+17,topx,'   ¶¶¶¶¶¶¶¶  ¶¶¶   ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+18,topx,'    ¶¶¶¶¶¶¶¶¶¶¶¶  ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+19,topx,'    ¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+20,topx,'    ¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+21,topx,'  ¶¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶ ¶¶¶¶¶')
+    stdscr.addstr(topy+22,topx,'  ¶¶¶¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+23,topx,'   ¶¶¶¶¶¶¶         ¶¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+24,topx,'                   ¶¶¶¶¶¶¶¶¶¶¶')
+    stdscr.addstr(topy+25,topx,'                   ¶¶¶¶¶¶¶¶¶¶')
     stdscr.refresh()
     time.sleep(3)
 
@@ -77,16 +78,17 @@ def loser(stdscr,yy,xx):
     time.sleep(3)
 
 
-def runner(stdscr):
+def runner(stdscr, maxx, maxy):
     guess = 0
     n = 0
     word = randword('sowpods.txt').strip().upper()
     loc = [' _'] * (len(word))
     letters = []
     guessword = ''.join(loc)
-    (maxy, maxx) = stdscr.getmaxyx()
+    
     middley = int(maxy/2)
     middlex = int(maxx/2)
+        
     while n <= 6:
         stdscr.clear()
         if n == 6:
@@ -95,20 +97,15 @@ def runner(stdscr):
         
         letters.sort()
         firststr = f'You have {6 - n} incorrect guesses remaining.'
-        if len(firststr) > maxx:
-            stdscr.resize(maxy, len(firststr))
-            middlex = int(len(firststr)/2)
         
         allx = middlex-int(len(firststr)/2)
         ally = middley-6
-        stdscr.addstr(ally,allx,firststr)
         
+        stdscr.addstr(ally,allx,firststr)
         stdscr.addstr(ally+1,allx,f'Letters guessed: {" ".join(letters)}')
         [stdscr.addstr(i,allx,mylines[n][i-ally-2]) for i in range(ally+2,ally+9)]
-            
         stdscr.addstr(ally+9,allx,guessword)
         stdscr.addstr(ally+11,allx,'Guess a Letter: ')
-        stdscr.resize(maxy,maxx)
         stdscr.refresh()
         
         guess = stdscr.getstr().decode('ascii').upper()
@@ -141,7 +138,7 @@ def runner(stdscr):
             letters.append(guess)
             for i in range (0, len(word)):
                 if word[i] == guess:
-                    loc[i] = word[i]
+                    loc[i] = ' ' + word[i]
             guessword = ''.join(loc)
         else:
             letters.append(guess)
@@ -155,12 +152,21 @@ def runner(stdscr):
         stdscr.refresh()
         
         if guessword == word:
-            winner(stdscr,middley,middlex,maxy)
+            winner(stdscr,middley,middlex)
             break
     return word
 
 if __name__ == '__main__':
     stdscr = curses.initscr()
-    curses.curs_set(0)
-    word = runner(stdscr)
-    print('The word was obviously ' + word)
+    (maxy, maxx) = stdscr.getmaxyx()
+    
+    errw = True if maxx < 44 else False
+    errh = True if maxy < 26 else False
+    
+    if errw or errh:
+        print('Increase terminal height to play.') if errh else None 
+        print('Increase terminal width to play.') if errw else None
+    else:
+        curses.curs_set(0)
+        word = runner(stdscr,maxx,maxy)
+        print('The word was obviously ' + word)
