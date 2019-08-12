@@ -78,7 +78,7 @@ def loser(stdscr,yy,xx):
     time.sleep(3)
 
 
-def runner(stdscr, maxx, maxy):
+def runner(stdscr, yy, xx):
     guess = 0
     n = 0
     word = randword('sowpods.txt').strip().upper()
@@ -86,8 +86,8 @@ def runner(stdscr, maxx, maxy):
     letters = []
     guessword = ' '.join(loc)
     
-    middley = int(maxy/2)
-    middlex = int(maxx/2)
+    middley = int(yy/2)
+    middlex = int(xx/2)
         
     while n <= 6:
         stdscr.clear()
@@ -139,10 +139,7 @@ def runner(stdscr, maxx, maxy):
             for i in range (len(word)):
                 if word[i] == guess:
                     loc[i] = guess
-            newloc = loc.copy()
-            ind = [i for i, x in enumerate(newloc) if x == '_' and newloc[i-1] == '_' and i != 0]
-            [newloc.insert(i+ind.index(i),' ') for i in ind]
-            guessword = ''.join(newloc)
+            guessword = ' '.join(loc)
         else:
             letters.append(guess)
             errstr = f'There is no {guess} in the word!'
@@ -167,9 +164,11 @@ if __name__ == '__main__':
     errh = True if maxy < 26 else False
     
     if errw or errh:
+        curses.endwin()
         print('Increase terminal height to play.') if errh else None 
         print('Increase terminal width to play.') if errw else None
     else:
         curses.curs_set(0)
-        word = runner(stdscr,maxx,maxy)
+        word = runner(stdscr,maxy,maxx)
+        curses.endwin()
         print('The word was obviously ' + word)
